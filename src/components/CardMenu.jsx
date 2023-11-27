@@ -10,8 +10,7 @@ import {
   Divider,
   ButtonGroup,
 } from "@chakra-ui/react";
-import { PiMoney } from "react-icons/pi";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaMoneyBillAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { dataMenu } from "../data/db";
 
@@ -63,7 +62,7 @@ function CardMenu(props) {
                 _focus={{ backgroundColor: "#f59e0b", color: "black" }}
               >
                 Order Now
-                <PiMoney className="text-lg" />
+                <FaMoneyBillAlt className="text-lg" />
               </Button>
               <Button
                 colorScheme="whiteAlpha"
