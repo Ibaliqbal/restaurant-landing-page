@@ -56,7 +56,7 @@ function Contact() {
             <Heading className="text-center" as="h3">
               <Highlight
                 query="CONTACT US"
-                styles={{ px: "2", py: "1", rounded: "lg", bg: "teal.100" }}
+                styles={{ px: "2", py: "1", rounded: "lg", bg: "teal", color: "white" }}
               >
                 CONTACT US
               </Highlight>
