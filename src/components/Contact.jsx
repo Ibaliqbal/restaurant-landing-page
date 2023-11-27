@@ -9,16 +9,37 @@ import {
   Button,
   Heading,
   Highlight,
+  useToast,
 } from "@chakra-ui/react";
 import ThankYouWaiter from "../assets/images/thankyou.svg";
 import Title from "./Title";
 
 function Contact() {
+  const toast = useToast();
   const fullNameRef = useRef("");
   const numberPhoneRef = useRef("");
   const emailRef = useRef("");
   const commentRef = useRef("");
   const [load, setLoad] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(fullNameRef.current.value);
+    console.log(numberPhoneRef.current.value);
+    console.log(emailRef.current.value);
+    console.log(commentRef.current.value);
+    setLoad(true);
+    setTimeout(() => {
+      setLoad(false);
+
+      toast({
+        title: "Success send",
+        position: "bottom",
+        isClosable: true,
+        status: "success",
+        duration: 5000,
+      });
+    }, 5000);
+  };
   return (
     <section className="w-full pt-28" id="contact">
       <div className="container">
@@ -30,20 +51,15 @@ function Contact() {
           <form
             action=""
             className="w-full px-4 py-4 lg:col-span-2 grid gap-3"
-            onSubmit={(e) => {
-              e.preventDefault();
-              console.log(fullNameRef.current.value);
-              console.log(numberPhoneRef.current.value);
-              console.log(emailRef.current.value);
-              console.log(commentRef.current.value);
-              setLoad(true);
-              setTimeout(() => {
-                setLoad(false);
-              }, 1000);
-            }}
+            onSubmit={handleSubmit}
           >
             <Heading className="text-center" as="h3">
-              <Highlight query="CONTACT US" styles={{px: "2", py: "1", rounded: "lg", bg: "teal.100"}}>CONTACT US</Highlight>
+              <Highlight
+                query="CONTACT US"
+                styles={{ px: "2", py: "1", rounded: "lg", bg: "teal.100" }}
+              >
+                CONTACT US
+              </Highlight>
             </Heading>
             <FormControl>
               <FormLabel>Full Name</FormLabel>
