@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply scroll-smooth;
+}
+
+.hero {
+  -webkit-mask-image: linear-gradient(
+    rgba(0, 0, 0, 0.8) 85%,
+    rgba(0, 0, 0, 0.2)
+  );
+  mask-image: linear-gradient(rgba(0, 0, 0, 0.8) 85%, rgba(0, 0, 0, 0.2));
+}
+
+.title-about:before {
+  @apply w-full h-auto inline-block top-2 lg:-top-6 lg:text-9xl -translate-x-[50%] text-5xl left-[50%] absolute;
+  content: "ABOUT US";
+  opacity: 0.5;
+}
+.title-menu:before {
+  @apply w-full h-auto inline-block top-2 lg:-top-6 lg:text-9xl -translate-x-[50%] text-5xl left-[50%] absolute;
+  content: "MENU";
+  opacity: 0.5;
+}
+.title-testimoni:before {
+  @apply w-full h-auto inline-block top-2 lg:-top-6 lg:text-9xl -translate-x-[50%] text-5xl left-[50%] absolute;
+  content: "TESTIMONI";
+  opacity: 0.5;
+}
+.title-contact:before {
+  @apply w-full h-auto inline-block top-2 lg:-top-6 lg:text-9xl -translate-x-[50%] text-5xl left-[50%] absolute;
+  content: "CONTACT";
+  opacity: 0.5;
+}
