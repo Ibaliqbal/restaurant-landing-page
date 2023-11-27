@@ -9,7 +9,7 @@ import {
   Link,
   Avatar,
 } from "@chakra-ui/react";
-import { FaAlignRight, FaX } from "react-icons/fa6";
+import { MdOutlineClose, MdOutlineFormatAlignRight } from "react-icons/md";
 import Logo from "../assets/images/logo.svg";
 
 function Navbar() {
@@ -39,11 +39,11 @@ function Navbar() {
             <Spacer />
             <Button colorScheme="teal">Log in</Button>
             <div className="relative flex max-w-full items-center">
-              <div className="text-2xl lg:hidden">
+              <div className="text-3xl lg:hidden">
                 {navbar ? (
-                  <FaX onClick={() => setNavbar((prev) => !prev)} />
+                  <MdOutlineClose onClick={() => setNavbar((prev) => !prev)} />
                 ) : (
-                  <FaAlignRight
+                  <MdOutlineFormatAlignRight
                     onClick={() => setNavbar((prev) => !prev)}
                   />
                 )}
