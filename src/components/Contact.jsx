@@ -91,7 +91,6 @@ function Contact() {
                 placeholder="Please comment below here"
                 h="200px"
                 resize="none"
-                color="white"
                 ref={commentRef}
               />
             </FormControl>

@@ -10,7 +10,7 @@ import {
   Avatar,
 } from "@chakra-ui/react";
 import { MdOutlineClose, MdOutlineFormatAlignRight } from "react-icons/md";
-import Logo from "../assets/images/logo.svg"
+import Logo from "../assets/images/logo.svg";
 
 function Navbar() {
   const headerRef = useRef(null);
@@ -33,7 +33,7 @@ function Navbar() {
         <header>
           <Flex minWidth="max-content" alignItems="center" gap="2">
             <Box p="2" className="flex items-center">
-              <Avatar src={Logo} name="Logo" w="60px" h="60px"/>
+              <Avatar src={Logo} name="Logo" w="60px" h="60px" />
               <Heading size="lg">BalResto</Heading>
             </Box>
             <Spacer />
@@ -56,19 +56,49 @@ function Navbar() {
                 }  px-2 py-2`}
               >
                 <ul className="lg:grid grid-flow-col place-items-center text-center gap-4 text-lg">
-                  <li className={`mt-4 lg:mt-0 ${navbar ? "hover:bg-secondary hover:text-primary px-2 py-1" : null} transition-all duration-300 ease-in-out`}>
+                  <li
+                    className={`mt-4 lg:mt-0 ${
+                      navbar
+                        ? "hover:bg-secondary hover:text-primary px-2 py-1"
+                        : null
+                    } transition-all duration-300 ease-in-out`}
+                  >
                     <Link href="#">HOME</Link>
                   </li>
-                  <li className={`mt-4 lg:mt-0 ${navbar ? "hover:bg-secondary hover:text-primary px-2 py-1" : null} transition-all duration-300 ease-in-out`}>
-                    <Link href="#about">ABOUT</Link>
+                  <li
+                    className={`mt-4 lg:mt-0 ${
+                      navbar
+                        ? "hover:bg-secondary hover:text-primary px-2 py-1"
+                        : null
+                    } transition-all duration-300 ease-in-out`}
+                  >
+                    <Link href="#about">ABOUT US</Link>
                   </li>
-                  <li className={`mt-4 lg:mt-0 ${navbar ? "hover:bg-secondary hover:text-primary px-2 py-1" : null} transition-all duration-300 ease-in-out`}>
+                  <li
+                    className={`mt-4 lg:mt-0 ${
+                      navbar
+                        ? "hover:bg-secondary hover:text-primary px-2 py-1"
+                        : null
+                    } transition-all duration-300 ease-in-out`}
+                  >
                     <Link href="#menu">MENU</Link>
                   </li>
-                  <li className={`mt-4 lg:mt-0 ${navbar ? "hover:bg-secondary hover:text-primary px-2 py-1" : null} transition-all duration-300 ease-in-out`}>
+                  <li
+                    className={`mt-4 lg:mt-0 ${
+                      navbar
+                        ? "hover:bg-secondary hover:text-primary px-2 py-1"
+                        : null
+                    } transition-all duration-300 ease-in-out`}
+                  >
                     <Link href="#testimoni">TESTIMONI</Link>
                   </li>
-                  <li className={`mt-4 lg:mt-0 ${navbar ? "hover:bg-secondary hover:text-primary px-2 py-1" : null} transition-all duration-300 ease-in-out`}>
+                  <li
+                    className={`mt-4 lg:mt-0 ${
+                      navbar
+                        ? "hover:bg-secondary hover:text-primary px-2 py-1"
+                        : null
+                    } transition-all duration-300 ease-in-out`}
+                  >
                     <Link href="#contact">CONTACT US</Link>
                   </li>
                 </ul>

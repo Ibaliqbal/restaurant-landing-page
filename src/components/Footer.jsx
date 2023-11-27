@@ -39,7 +39,7 @@ function Footer() {
                   <Link href="#">Home</Link>
                 </li>
                 <li>
-                  <Link href="#about">About</Link>
+                  <Link href="#about">About Us</Link>
                 </li>
                 <li>
                   <Link href="#menu">Menu</Link>
@@ -58,7 +58,7 @@ function Footer() {
               </Heading>
               <ul className="grid gap-1 mt-2">
                 <li>
-                  <Link href="#about">About</Link>
+                  <Link href="#about">About Us</Link>
                 </li>
                 <li>
                   <Link href="#menu">Menu</Link>
