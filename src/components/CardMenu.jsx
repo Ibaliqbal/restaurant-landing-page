@@ -67,7 +67,7 @@ function CardMenu(props) {
                 _focus={{ backgroundColor: "#f59e0b", color: "black" }}
               >
                 Order Now
-                <FaMoneyBillAlt className="text-lg" />
+                <FaMoneyBillAlt className="text-lg" aria-label="buy"/>
               </Button>
               <Button
                 colorScheme="whiteAlpha"
@@ -77,7 +77,7 @@ function CardMenu(props) {
                 _focus={{ backgroundColor: "#1d4ed8", color: "#1f2937" }}
               >
                 Add to cart
-                <FaShoppingCart />
+                <FaShoppingCart aria-label="cart"/>
               </Button>
             </ButtonGroup>
           </CardFooter>

@@ -14,32 +14,32 @@ function SosialMedia(props) {
     {
       id: 1,
       nameIcon: "Instagram",
-      icon: <FaInstagram className="cursor-pointer" />,
+      icon: <FaInstagram className="cursor-pointer" aria-label="Instagram"/>,
     },
     {
       id: 2,
       nameIcon: "Youtube",
-      icon: <FaYoutube className="cursor-pointer" />,
+      icon: <FaYoutube className="cursor-pointer" aria-label="Youtube"/>,
     },
     {
       id: 3,
       nameIcon: "Facebook",
-      icon: <FaFacebook className="cursor-pointer" />,
+      icon: <FaFacebook className="cursor-pointer" aria-label="Facebook"/>,
     },
     {
       id: 4,
       nameIcon: "Linkedin",
-      icon: <FaLinkedin className="cursor-pointer" />,
+      icon: <FaLinkedin className="cursor-pointer" aria-label="Linkedin"/>,
     },
     {
       id: 5,
       nameIcon: "Twitter",
-      icon: <FaTwitter className="cursor-pointer" />,
+      icon: <FaTwitter className="cursor-pointer" aria-label="Twitter"/>,
     },
     {
       id: 6,
       nameIcon: "TikTok",
-      icon: <FaTiktok className="cursor-pointer" />,
+      icon: <FaTiktok className="cursor-pointer" aria-label="Tiktok"/>,
     },
   ];
 

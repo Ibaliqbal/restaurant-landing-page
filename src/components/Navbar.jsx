@@ -41,17 +41,17 @@ function Navbar() {
               <Heading size="lg">BalResto</Heading>
             </Box>
             <Spacer />
-            <div className="relative bg-secondary rounded-lg px-2 py-2">
-              <BiCart className="text-3xl"/>
-              <span className="absolute bg-red-700 px-1 py-1 rounded right-0 -bottom-2 text-xs text-white">0</span>
+            <div className="relative bg-primary rounded-lg px-2 py-2">
+              <BiCart className="text-3xl" aria-label="Cart"/>
+              <span className="absolute bg-red-500 px-1 py-1 rounded right-0 -bottom-2 text-xs text-white">0</span>
             </div>
             <Button colorScheme="teal">Log in</Button>
             <div className="relative flex max-w-full items-center">
               <div className="text-3xl lg:hidden">
                 {navbar ? (
-                  <BiX onClick={() => setNavbar((prev) => !prev)} />
+                  <BiX onClick={() => setNavbar((prev) => !prev)} aria-label="close"/>
                 ) : (
-                  <BiAlignRight onClick={() => setNavbar((prev) => !prev)} />
+                  <BiAlignRight onClick={() => setNavbar((prev) => !prev)} aria-label="menu"/>
                 )}
               </div>
               <nav
