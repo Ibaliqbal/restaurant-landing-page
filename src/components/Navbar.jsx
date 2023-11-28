@@ -9,7 +9,11 @@ import {
   Link,
   Avatar,
 } from "@chakra-ui/react";
-import { MdOutlineClose, MdOutlineFormatAlignRight } from "react-icons/md";
+// import {
+//   MdOutlineClose,
+//   MdOutlineFormatAlignRight,
+// } from "react-icons/md";
+import { BiCart, BiAlignRight, BiX } from "react-icons/bi";
 import Logo from "../assets/images/logo.svg";
 
 function Navbar() {
@@ -37,15 +41,17 @@ function Navbar() {
               <Heading size="lg">BalResto</Heading>
             </Box>
             <Spacer />
+            <div className="relative bg-secondary rounded-lg px-2 py-2">
+              <BiCart className="text-3xl"/>
+              <span className="absolute bg-red-700 px-1 py-1 rounded right-0 -bottom-2 text-xs text-white">0</span>
+            </div>
             <Button colorScheme="teal">Log in</Button>
             <div className="relative flex max-w-full items-center">
               <div className="text-3xl lg:hidden">
                 {navbar ? (
-                  <MdOutlineClose onClick={() => setNavbar((prev) => !prev)} />
+                  <BiX onClick={() => setNavbar((prev) => !prev)} />
                 ) : (
-                  <MdOutlineFormatAlignRight
-                    onClick={() => setNavbar((prev) => !prev)}
-                  />
+                  <BiAlignRight onClick={() => setNavbar((prev) => !prev)} />
                 )}
               </div>
               <nav

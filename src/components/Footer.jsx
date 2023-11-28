@@ -1,5 +1,5 @@
 import { Avatar, Heading, Link, Text } from "@chakra-ui/react";
-import Logo from "../assets/images/logo.svg"
+import Logo from "../assets/images/logo.svg";
 import SosialMedia from "./SosialMedia";
 function Footer() {
   return (
@@ -30,7 +30,7 @@ function Footer() {
             </div>
           </div>
           <div className="md:w-1/2 px-4 py-4 flex flex-col md:flex-row gap-3">
-            <div className="md:w-1/2 px-2 py-2">
+            <div className="md:w-1/3 px-2 py-2">
               <Heading as="h5" size="md">
                 Pages
               </Heading>
@@ -52,7 +52,7 @@ function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="md:w-1/2 px-2 py-2">
+            <div className="md:w-1/3 px-2 py-2">
               <Heading as="h5" size="md">
                 Restaurant
               </Heading>
@@ -68,6 +68,21 @@ function Footer() {
                 </li>
                 <li>
                   <Link href="#contact">Contact Us</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="lg:w-1/3 px-2 py-2">
+              <Heading as="h5" size="md">
+                Developer
+              </Heading>
+              <ul className="grid mt-2 gap-1">
+                <li>Iqbal Muthahhary</li>
+                <li>iqbalmuthahhary@gmail.com</li>
+                <li>
+                  <div>
+                    <Heading as="h6" size="sm" mb="2">Sosial Media</Heading>
+                    <SosialMedia sizeIcon="text-md" gap="gap-2" />
+                  </div>
                 </li>
               </ul>
             </div>

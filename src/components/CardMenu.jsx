@@ -13,6 +13,8 @@ import {
 import { FaShoppingCart, FaMoneyBillAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { dataMenu } from "../data/db";
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 function CardMenu(props) {
   const { type } = props;
@@ -25,10 +27,13 @@ function CardMenu(props) {
         : menu.filter((list) => list.category === type.toLowerCase());
     setMenus(menu);
   }, [type]);
+  AOS.init({
+    duration: 2000
+  })
   return (
     <section className="grid place-items-center lg:grid-cols-3 md:grid-cols-2 gap-4">
       {menus?.map((menu) => (
-        <Card maxW="md" key={menu.id} className="group">
+        <Card maxW="md" key={menu.id} className="group" data-aos="fade-up">
           <CardBody>
             <div className="relative">
               <Image
