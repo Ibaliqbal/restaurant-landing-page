@@ -37,7 +37,11 @@ function ListOrderMenu({ onClose, isOpen }) {
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerHeader borderBottomWidth="1px">List Order Menu</DrawerHeader>
+        <DrawerHeader borderBottomWidth="1px">
+          <div>
+            <Heading as={"h3"} size={"md"}>List Order Menu</Heading>
+          </div>
+        </DrawerHeader>
         <DrawerBody>
           {menu.length > 0 ? (
             menu?.map((list) => {
@@ -100,13 +104,15 @@ function ListOrderMenu({ onClose, isOpen }) {
               );
             })
           ) : (
-            <Heading as={"h3"}>No order yet</Heading>
+            <Heading as={"h3"} size={"md"}>No order yet</Heading>
           )}
         </DrawerBody>
         {menu?.length > 0 ? (
           <DrawerFooter>
             <div className="bg-primary w-full flex justify-between px-3 py-3 items-center">
-              <Heading>Total Price</Heading>
+              <Heading as={"h3"} size={"md"}>
+                Total Price
+              </Heading>
               <Text>
                 Rp.{" "}
                 {sum.toLocaleString("id-ID", {
