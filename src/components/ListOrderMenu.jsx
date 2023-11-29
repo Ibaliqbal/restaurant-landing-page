@@ -56,7 +56,7 @@ function ListOrderMenu({ onClose, isOpen }) {
                     <Heading as={"h3"} size={"xs"} className="w-1/4">
                       {findMenu.title}
                     </Heading>
-                    <Text className="w-1/4">{list.quantity}</Text>
+                    <Text className="w-1/4 text-center">{list.quantity}</Text>
                     {/* <ul className="w-1/4 flex items-center gap-2">
                       <li>
                         <Button colorScheme="yellow">-</Button>
