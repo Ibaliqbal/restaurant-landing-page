@@ -10,12 +10,14 @@ import {
   Heading,
   Highlight,
   useToast,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 import ThankYouWaiter from "../assets/images/thankyou.svg";
 import Title from "./Title";
 
 function Contact() {
   const toast = useToast();
+  const [ error, setError ] = useState(false)
   const fullNameRef = useRef("");
   const numberPhoneRef = useRef("");
   const emailRef = useRef("");
@@ -23,22 +25,24 @@ function Contact() {
   const [load, setLoad] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(fullNameRef.current.value);
-    console.log(numberPhoneRef.current.value);
-    console.log(emailRef.current.value);
-    console.log(commentRef.current.value);
-    setLoad(true);
-    setTimeout(() => {
-      setLoad(false);
-
-      toast({
-        title: "Success send",
-        position: "bottom",
-        isClosable: true,
-        status: "success",
-        duration: 5000,
-      });
-    }, 5000);
+    if (
+      fullNameRef.current.value ||
+      numberPhoneRef.current.value ||
+      emailRef.current.value ||
+      commentRef.current.value === ""
+    ) {
+      setLoad(true);
+      setTimeout(() => {
+        setLoad(false);
+        toast({
+          title: "Success send",
+          position: "bottom",
+          isClosable: true,
+          status: "success",
+          duration: 5000,
+        });
+      }, 5000);
+    }
   };
   return (
     <section className="w-full pt-28" id="contact">
@@ -56,7 +60,13 @@ function Contact() {
             <Heading className="text-center" as="h3">
               <Highlight
                 query="CONTACT US"
-                styles={{ px: "2", py: "1", rounded: "lg", bg: "teal", color: "white" }}
+                styles={{
+                  px: "2",
+                  py: "1",
+                  rounded: "lg",
+                  bg: "teal",
+                  color: "white",
+                }}
               >
                 CONTACT US
               </Highlight>
@@ -76,6 +86,11 @@ function Contact() {
                 placeholder="Enter your email"
                 ref={emailRef}
               />
+              {error ? (
+                <FormErrorMessage>
+                  Email is not valid
+                </FormErrorMessage>
+              )  : null}
             </FormControl>
             <FormControl>
               <FormLabel>Phone Number</FormLabel>

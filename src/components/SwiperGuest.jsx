@@ -50,7 +50,7 @@ function SwiperGuest(props) {
                   />
                   <Box>
                     <Heading size="sm" as="h3">{user.fullname}</Heading>
-                    <Text>{user.position}</Text>
+                    <Text className="text-sm md:text-md">{user.position}</Text>
                   </Box>
                 </div>
               </CardHeader>

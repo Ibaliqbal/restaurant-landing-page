@@ -10,29 +10,31 @@ import {
   Divider,
   ButtonGroup,
 } from "@chakra-ui/react";
-import { FaShoppingCart, FaMoneyBillAlt } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { dataMenu } from "../data/db";
-import AOS from "aos"
-import "aos/dist/aos.css"
+import { OrderContext } from "../context/orderContext";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function CardMenu(props) {
-  const { type } = props;
-  const [menus, setMenus] = useState([]);
+  const { order, setOrder } = useContext(OrderContext);
+  const listMenu = dataMenu.data.results;
+  const { type, menus } = props;
+  const [menu, setMenu] = useState([]);
   useEffect(() => {
-    let menu = dataMenu.data.results;
+    let menu = menus;
     menu =
       type.toLowerCase() === "all menu"
         ? menu
         : menu.filter((list) => list.category === type.toLowerCase());
-    setMenus(menu);
+    setMenu(menu);
   }, [type]);
   AOS.init({
-    duration: 2000
-  })
+    duration: 2000,
+  });
   return (
     <section className="grid place-items-center lg:grid-cols-3 md:grid-cols-2 gap-4">
-      {menus?.map((menu) => (
+      {menu?.map((menu) => (
         <Card maxW="md" key={menu.id} className="group" data-aos="fade-up">
           <CardBody>
             <div className="relative">
@@ -46,7 +48,9 @@ function CardMenu(props) {
               />
             </div>
             <Stack mt="6" spacing="3">
-              <Heading size="md" as="h3">{menu.title}</Heading>
+              <Heading size="md" as="h3">
+                {menu.title}
+              </Heading>
               <Text as="p">{menu.description.slice(0, 300)}...</Text>
               <Text color="blue.600" fontSize="2xl" as="p">
                 Rp.{" "}
@@ -66,8 +70,7 @@ function CardMenu(props) {
                 _hover={{ backgroundColor: "#f59e0b", color: "black" }}
                 _focus={{ backgroundColor: "#f59e0b", color: "black" }}
               >
-                Order Now
-                <FaMoneyBillAlt className="text-lg" aria-label="buy"/>
+                Buy Now
               </Button>
               <Button
                 colorScheme="whiteAlpha"
@@ -75,9 +78,24 @@ function CardMenu(props) {
                 color="#737373"
                 _hover={{ backgroundColor: "#1d4ed8", color: "#1f2937" }}
                 _focus={{ backgroundColor: "#1d4ed8", color: "#1f2937" }}
+                onClick={() => {
+                  const orderMenu = {
+                    id: menu.id,
+                    quantity: 1,
+                  };
+
+                  const findMenuSame = order.find(
+                    (list) => list.id === orderMenu.id
+                  );
+                  const addOrder = [...order, orderMenu];
+                  if (findMenuSame) {
+                    findMenuSame.quantity++;
+                  } else {
+                    setOrder(addOrder);
+                  }
+                }}
               >
                 Add to cart
-                <FaShoppingCart aria-label="cart"/>
               </Button>
             </ButtonGroup>
           </CardFooter>

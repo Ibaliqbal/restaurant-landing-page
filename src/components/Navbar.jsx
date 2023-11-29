@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useContext, useRef, useState } from "react";
 import {
   Heading,
   Container,
@@ -8,18 +8,19 @@ import {
   Button,
   Link,
   Avatar,
+  useDisclosure,
 } from "@chakra-ui/react";
-// import {
-//   MdOutlineClose,
-//   MdOutlineFormatAlignRight,
-// } from "react-icons/md";
 import { BiCart, BiAlignRight, BiX } from "react-icons/bi";
 import Logo from "../assets/images/logo.svg";
+import ListOrderMenu from "./ListOrderMenu";
+import { OrderContext } from "../context/orderContext";
 
 function Navbar() {
   const headerRef = useRef(null);
   const [fixedNav, setFixedNav] = useState("");
   const [navbar, setNavbar] = useState(false);
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  const { order } = useContext(OrderContext);
   window.onscroll = function () {
     const fixedNav = headerRef.current.offsetTop;
     if (window.pageYOffset > fixedNav) {
@@ -30,7 +31,7 @@ function Navbar() {
   };
   return (
     <section
-      className={`z-[9999] w-full max-w-full ${fixedNav ? fixedNav : ""}`}
+      className={`z-50 w-full max-w-full ${fixedNav ? fixedNav : "relative"}`}
       ref={headerRef}
     >
       <Container maxW="container" py="1rem">
@@ -41,17 +42,31 @@ function Navbar() {
               <Heading size="lg">BalResto</Heading>
             </Box>
             <Spacer />
-            <div className="relative bg-primary rounded-lg px-2 py-2">
-              <BiCart className="text-3xl" aria-label="Cart"/>
-              <span className="absolute bg-red-500 px-1 py-1 rounded right-0 -bottom-2 text-xs text-white">0</span>
+            <div
+              className="relative bg-primary rounded-lg px-2 py-2 cursor-pointer"
+              onClick={onOpen}
+            >
+              <BiCart className="text-3xl" aria-label="Cart" />
+              {order?.length > 0 ? (
+                <span className="absolute bg-red-500 px-1 py-1 rounded-3xl right-0 -bottom-2 text-xs text-white">
+                  {order.length}
+                </span>
+              ) : null}
             </div>
+            <ListOrderMenu onClose={onClose} isOpen={isOpen} />
             <Button colorScheme="teal">Log in</Button>
             <div className="relative flex max-w-full items-center">
               <div className="text-3xl lg:hidden">
                 {navbar ? (
-                  <BiX onClick={() => setNavbar((prev) => !prev)} aria-label="close"/>
+                  <BiX
+                    onClick={() => setNavbar((prev) => !prev)}
+                    aria-label="close"
+                  />
                 ) : (
-                  <BiAlignRight onClick={() => setNavbar((prev) => !prev)} aria-label="menu"/>
+                  <BiAlignRight
+                    onClick={() => setNavbar((prev) => !prev)}
+                    aria-label="menu"
+                  />
                 )}
               </div>
               <nav
