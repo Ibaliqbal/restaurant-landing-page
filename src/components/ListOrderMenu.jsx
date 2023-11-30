@@ -13,12 +13,13 @@ import {
   Heading,
   Text,
   Button,
+  Divider,
 } from "@chakra-ui/react";
 
 function ListOrderMenu({ onClose, isOpen }) {
   const listMenu = dataMenu.data.results;
   const [menu, setMenu] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0);
   const {
     order,
     totalQuantity,
@@ -33,7 +34,7 @@ function ListOrderMenu({ onClose, isOpen }) {
       const product = listMenu.find((product) => product.id === item.id);
       return acc + product.price * item.quantity;
     }, 0);
-    setTotalPrice(sum)
+    setTotalPrice(sum);
   }, [order, totalQuantity]);
   return (
     <Drawer
@@ -61,36 +62,43 @@ function ListOrderMenu({ onClose, isOpen }) {
               );
               return (
                 <div key={list.id} className="w-full">
-                  <section className="flex items-center w-full justify-around mt-2">
+                  <section className="flex gap-x-4 items-center w-full justify-evenly mt-4">
                     <Avatar
                       src={findMenu.image}
                       className="w-1/5"
                       w={"50px"}
                       h={"50px"}
                     />
-                    <Heading as={"h3"} size={"xs"} className="w-1/5">
+                    <Heading
+                      as={"h3"}
+                      size={"xs"}
+                      className="w-1/5 max-w-[60px]"
+                    >
                       {findMenu.title}
                     </Heading>
-                    <ul className="w-1/4 flex items-center gap-1">
+                    <ul className="w-1/2 flex items-center gap-3">
                       <li>
                         <Button
-                          colorScheme="yellow"
                           onClick={() => handleKurangQuantity(list)}
+                          colorScheme="yellow"
+                          size={"sm"}
                         >
                           -
                         </Button>
                       </li>
-                      <li className="w-[50px] text-center">{list.quantity}</li>
+                      <li className="max-w-[60px] text-center">
+                        {list.quantity}
+                      </li>
                       <li>
                         <Button
-                          colorScheme="yellow"
+                          size={"sm"}                          colorScheme="yellow"
                           onClick={() => handleTambahQuantity(list)}
                         >
                           +
                         </Button>
                       </li>
                     </ul>
-                    <Text className="w-1/5">
+                    <Text className="w-1/5 text-center">
                       Rp.{" "}
                       {(list.quantity * findMenu.price).toLocaleString(
                         "id-ID",
@@ -102,13 +110,14 @@ function ListOrderMenu({ onClose, isOpen }) {
                     </Text>
                     <Button
                       className="w-1/5"
-                      w="40px"
+                      w={"20px"}
                       colorScheme="red"
                       onClick={() => handleDeleteMenu(list)}
                     >
                       X
                     </Button>
                   </section>
+                  <Divider h={"10px"} colorScheme="black"/>
                 </div>
               );
             })

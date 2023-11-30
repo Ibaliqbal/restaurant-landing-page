@@ -14,7 +14,7 @@ import {
 function SwiperGuest(props) {
   const { users } = props;
   return (
-    <main className="mt-24 pb-16 pt-8 px-6">
+    <main className="mt-2 pb-16 pt-8 px-6">
       <Swiper
         slidesPerView={3}
         spaceBetween={10}
