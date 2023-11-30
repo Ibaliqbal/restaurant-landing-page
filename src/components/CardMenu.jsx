@@ -17,7 +17,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function CardMenu(props) {
-  const { order, setOrder } = useContext(OrderContext);
+  const { handleAddToCart } = useContext(OrderContext);
   const listMenu = dataMenu.data.results;
   const { type, menus } = props;
   const [menu, setMenu] = useState([]);
@@ -78,22 +78,7 @@ function CardMenu(props) {
                 color="#737373"
                 _hover={{ backgroundColor: "#1d4ed8", color: "#1f2937" }}
                 _focus={{ backgroundColor: "#1d4ed8", color: "#1f2937" }}
-                onClick={() => {
-                  const orderMenu = {
-                    id: menu.id,
-                    quantity: 1,
-                  };
-
-                  const findMenuSame = order.find(
-                    (list) => list.id === orderMenu.id
-                  );
-                  const addOrder = [...order, orderMenu];
-                  if (findMenuSame) {
-                    findMenuSame.quantity++;
-                  } else {
-                    setOrder(addOrder);
-                  }
-                }}
+                onClick={() => handleAddToCart(menu)}
               >
                 Add to cart
               </Button>
